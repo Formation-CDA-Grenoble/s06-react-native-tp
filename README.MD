@@ -4,6 +4,8 @@ Nous avons réfléchi. Nous sommes tous des geeks et nous avons du mal à trouve
 
 Pour l'instant, tu devras seulement écrire une application capable d'afficher des profils de personnes imaginaires, après les avoir préalablement récupérées auprès d'une API. Jean-Louis, notre chef de projet, a découpé le travail à faire en tâches sur un tableau Trello. Il t'a également fourni des _wireframes_ pour te montrer comment il voir les choses. En revanche, nos designers sont toujours en train de travailler sur les maquettes, donc pour ce prototype tu as carte blanche sur l'apparence! De toute façon on refera tout après...
 
+> ⚠️ En cas de **gros** problème à faire fonctionner le serveur local, tu es autorisé à développer ce prototype en React.js (à l'aide de [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html)). Mais dans ce cas essaie quand même de refaire cette application en React Native depuis chez toi...
+
 ## 1. Installer les dépendances
 
 `yarn`
