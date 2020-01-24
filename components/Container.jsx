@@ -6,11 +6,13 @@ import PhoneView from './PhoneView';
 import AddressView from './AddressView';
 import ProfileView from './ProfileView';
 import SwitchMenu from './SwitchMenu';
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 class Container extends Component {
   state = {
     data: null,
     currentMenu: 0,
+    currentPerson: 0,
   };
 
   componentDidMount = () => {
@@ -25,14 +27,24 @@ class Container extends Component {
     this.setState({ currentMenu: index });
   }
 
+  previousPerson = () => {
+    const { currentPerson } = this.state;
+    this.setState({ currentPerson: currentPerson - 1 });
+  }
+
+  nextPerson = () => {
+    const { currentPerson } = this.state;
+    this.setState({ currentPerson: currentPerson + 1 });
+  }
+
   render = () => {
-    const { data, currentMenu } = this.state;
+    const { data, currentMenu, currentPerson } = this.state;
 
     if (data === null) {
       return <Text>Loading...</Text>
     }
 
-    const person = data.results[0];
+    const person = data.results[currentPerson];
 
     let subScreen;
     switch (currentMenu) {
@@ -50,11 +62,16 @@ class Container extends Component {
     }
 
     return (
-      <View>
-        <MainView name={person.name} picture={person.picture} />
-        <SwitchMenu setCurrentMenu={this.setCurrentMenu} />
-        {subScreen}
-      </View>
+      <GestureRecognizer
+        onSwipeLeft={this.nextPerson}
+        onSwipeRight={this.previousPerson}
+      >
+        <View>
+          <MainView name={person.name} picture={person.picture} />
+          <SwitchMenu setCurrentMenu={this.setCurrentMenu} />
+          {subScreen}
+        </View>
+      </GestureRecognizer>
     );
   }
 }
