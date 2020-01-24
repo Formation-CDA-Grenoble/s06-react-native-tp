@@ -26,7 +26,7 @@ class Container extends Component {
     const person = data.results[0];
 
     return (
-      <MainView />
+      <MainView name={person.name} picture={person.picture} />
     );
   }
 }
