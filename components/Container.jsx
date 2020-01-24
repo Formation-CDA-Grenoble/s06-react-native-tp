@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Axios from 'axios';
 import MainView from './MainView';
+import PhoneView from './PhoneView';
 
 class Container extends Component {
   state = {
@@ -26,7 +27,10 @@ class Container extends Component {
     const person = data.results[0];
 
     return (
-      <MainView name={person.name} picture={person.picture} />
+      <View>
+        <MainView name={person.name} picture={person.picture} />
+        <PhoneView />
+      </View>
     );
   }
 }
