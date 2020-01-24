@@ -10,10 +10,10 @@ const PhoneNumber = ({ type, number, color }) =>
   </View>
 ;
 
-const PhoneView = () =>
+const PhoneView = ({ phone, cell }) =>
   <View style={{ alignItems: 'center' }}>
-    <PhoneNumber type="Phone" number="81307892" color="red" />
-    <PhoneNumber type="Mobile" number="48067644" />
+    <PhoneNumber type="Phone" number={phone} color="red" />
+    <PhoneNumber type="Mobile" number={cell} />
   </View>
 ;
 

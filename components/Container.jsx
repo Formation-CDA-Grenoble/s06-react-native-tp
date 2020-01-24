@@ -29,7 +29,7 @@ class Container extends Component {
     return (
       <View>
         <MainView name={person.name} picture={person.picture} />
-        <PhoneView />
+        <PhoneView phone={person.phone} cell={person.cell} />
       </View>
     );
   }
