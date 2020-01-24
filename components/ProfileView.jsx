@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import TextSegment from './TextSegment';
 
 const months = [
   "January",
@@ -22,10 +23,10 @@ const ProfileView = ({ username, dob, registered }) => {
 
   return (
     <View style={{ alignItems: 'center' }}>
-      <Text style={{ fontSize: 20 }}>Username: {username}</Text>
-      <Text style={{ fontSize: 20 }}>Birthday: {months[birthDate.getMonth()]} {birthDate.getDay()}</Text>
-      <Text style={{ fontSize: 20 }}>Age: {dob.age}</Text>
-      <Text style={{ fontSize: 20 }}>Member since {registeredDate.toLocaleDateString('en-us')}</Text>
+      <TextSegment>Username: {username}</TextSegment>
+      <TextSegment>Birthday: {months[birthDate.getMonth()]} {birthDate.getDay()}</TextSegment>
+      <TextSegment>Age: {dob.age}</TextSegment>
+      <TextSegment>Member since {registeredDate.toLocaleDateString('en-us')}</TextSegment>
     </View>
   );
 }
