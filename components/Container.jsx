@@ -31,7 +31,7 @@ class Container extends Component {
     return (
       <View>
         <MainView name={person.name} picture={person.picture} />
-        <ProfileView />
+        <ProfileView username={person.login.username} dob={person.dob} registered={person.registered}/>
       </View>
     );
   }

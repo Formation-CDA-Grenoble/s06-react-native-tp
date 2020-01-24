@@ -1,13 +1,33 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const ProfileView = () =>
-  <View style={{ alignItems: 'center' }}>
-    <Text style={{ fontSize: 20 }}>Username: happycat242</Text>
-    <Text style={{ fontSize: 20 }}>Birthday: 1992-10-16T03:34:22.856Z</Text>
-    <Text style={{ fontSize: 20 }}>Age: 472</Text>
-    <Text style={{ fontSize: 20 }}>Member since 2003-09-22T18:45:54.927Z</Text>
-  </View>
-;
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+]
+
+const ProfileView = ({ username, dob, registered }) => {
+  const birthDate = new Date(dob.date);
+  const registeredDate = new Date(registered.date);
+
+  return (
+    <View style={{ alignItems: 'center' }}>
+      <Text style={{ fontSize: 20 }}>Username: {username}</Text>
+      <Text style={{ fontSize: 20 }}>Birthday: {months[birthDate.getMonth()]} {birthDate.getDay()}</Text>
+      <Text style={{ fontSize: 20 }}>Age: {dob.age}</Text>
+      <Text style={{ fontSize: 20 }}>Member since {registeredDate.toLocaleDateString('en-us')}</Text>
+    </View>
+  );
+}
 
 export default ProfileView;
