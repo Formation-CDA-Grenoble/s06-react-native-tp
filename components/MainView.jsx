@@ -9,7 +9,7 @@ const MainView = ({ name, picture }) =>
       style={{width: IMAGE_SIZE, height: IMAGE_SIZE, borderRadius: IMAGE_SIZE / 2}}
       source={{uri: picture.large}}
     />
-    <Text style={{fontSize: 25, paddingTop: 20, paddingBottom: 20}}>
+    <Text style={{fontSize: 30, paddingTop: 20, paddingBottom: 20}}>
       {name.first} {name.last}
     </Text>
   </View>
