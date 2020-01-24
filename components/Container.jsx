@@ -4,6 +4,7 @@ import Axios from 'axios';
 import MainView from './MainView';
 import PhoneView from './PhoneView';
 import AddressView from './AddressView';
+import ProfileView from './ProfileView';
 
 class Container extends Component {
   state = {
@@ -30,7 +31,7 @@ class Container extends Component {
     return (
       <View>
         <MainView name={person.name} picture={person.picture} />
-        <AddressView location={person.location} />
+        <ProfileView />
       </View>
     );
   }
