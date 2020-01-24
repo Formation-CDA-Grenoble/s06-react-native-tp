@@ -14,7 +14,7 @@ class Container extends Component {
   };
 
   componentDidMount = () => {
-    Axios.get('https://randomuser.me/api/')
+    Axios.get('https://randomuser.me/api/?results=10')
     .then(response =>
       this.setState({ data: response.data })
     )
