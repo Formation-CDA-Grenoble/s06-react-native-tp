@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import Axios from 'axios';
 import MainView from './MainView';
 import PhoneView from './PhoneView';
+import AddressView from './AddressView';
 
 class Container extends Component {
   state = {
@@ -29,7 +30,7 @@ class Container extends Component {
     return (
       <View>
         <MainView name={person.name} picture={person.picture} />
-        <PhoneView phone={person.phone} cell={person.cell} />
+        <AddressView />
       </View>
     );
   }
