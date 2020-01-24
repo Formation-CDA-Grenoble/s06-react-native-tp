@@ -1,11 +1,17 @@
 import React from 'react';
 import { View, Button } from 'react-native';
 
-const SwitchMenu = () =>
+const buttonTitles = [
+  'Adresse',
+  'Téléphone',
+  'Profil',
+]
+
+const SwitchMenu = ({ setCurrentMenu }) =>
   <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 20 }}>
-    <Button title="Adresse" color="#008" style={{ width: '33%' }}/>
-    <Button title="Téléphone" color="#008" style={{ width: '33%' }} />
-    <Button title="Profil" color="#008" style={{ width: '33%' }} />
+    {buttonTitles.map( (title, index) =>
+      <Button key={`button${index}`} onPress={setCurrentMenu(index)} title={title} color="#008" style={{ width: '33%' }} />
+    )}
   </View>
 ;
 

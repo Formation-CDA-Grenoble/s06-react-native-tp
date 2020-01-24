@@ -21,8 +21,12 @@ class Container extends Component {
     .catch(error => console.error(error));
   }
 
+  setCurrentMenu = (index) => () => {
+    this.setState({ currentMenu: index });
+  }
+
   render = () => {
-    const { data } = this.state;
+    const { data, currentMenu } = this.state;
 
     if (data === null) {
       return <Text>Loading...</Text>
@@ -30,11 +34,26 @@ class Container extends Component {
 
     const person = data.results[0];
 
+    let subScreen;
+    switch (currentMenu) {
+      case 0:
+        subScreen = <AddressView location={person.location} />;
+        break;
+      case 1:
+        subScreen = <PhoneView phone={person.phone} cell={person.cell} />;
+        break;
+      case 2:
+        subScreen = <ProfileView username={person.login.username} dob={person.dob} registered={person.registered} />
+        break;
+      default:
+        subScreen = null;
+    }
+
     return (
       <View>
         <MainView name={person.name} picture={person.picture} />
-        <SwitchMenu />
-        <AddressView location={person.location} />
+        <SwitchMenu setCurrentMenu={this.setCurrentMenu} />
+        {subScreen}
       </View>
     );
   }
