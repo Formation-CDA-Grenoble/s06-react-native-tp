@@ -1,16 +1,19 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
+const defaultColor = 'darkgrey';
+
+const PhoneNumber = ({ type, number, color }) =>
+  <View style={{ flexDirection: 'row', paddingTop: 10, paddingBottom: 10 }}>
+    <Text style={{ color: color || defaultColor, fontSize: 20 }}>{type}: </Text>
+    <Text style={{ fontSize: 20 }}>{number}</Text>
+  </View>
+;
+
 const PhoneView = () =>
   <View style={{ alignItems: 'center' }}>
-    <View style={{ flexDirection: 'row' }}>
-      <Text style={{ color: 'darkgrey', fontSize: 20 }}>Phone: </Text>
-      <Text style={{ fontSize: 20 }}>81307892</Text>
-    </View>
-    <View style={{ flexDirection: 'row' }}>
-      <Text style={{ color: 'darkgrey', fontSize: 20 }}>Mobile: </Text>
-      <Text style={{ fontSize: 20 }}>48067644</Text>
-    </View>
+    <PhoneNumber type="Phone" number="81307892" color="red" />
+    <PhoneNumber type="Mobile" number="48067644" />
   </View>
 ;
 
