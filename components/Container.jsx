@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Axios from 'axios';
+import MainView from './MainView';
 
 class Container extends Component {
   state = {
@@ -25,7 +26,7 @@ class Container extends Component {
     const person = data.results[0];
 
     return (
-      <Text>{person.name.first}</Text>
+      <MainView />
     );
   }
 }
