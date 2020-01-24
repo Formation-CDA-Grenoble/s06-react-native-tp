@@ -5,12 +5,7 @@ import Container from './components/Container';
 
 export default function App() {
   return (
-    <View style={{
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
+    <View style={styles.container}>
       <Container />
     </View>
   );

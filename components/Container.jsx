@@ -5,10 +5,12 @@ import MainView from './MainView';
 import PhoneView from './PhoneView';
 import AddressView from './AddressView';
 import ProfileView from './ProfileView';
+import SwitchMenu from './SwitchMenu';
 
 class Container extends Component {
   state = {
     data: null,
+    currentMenu: 0,
   };
 
   componentDidMount = () => {
@@ -31,6 +33,7 @@ class Container extends Component {
     return (
       <View>
         <MainView name={person.name} picture={person.picture} />
+        <SwitchMenu />
         <AddressView location={person.location} />
       </View>
     );
