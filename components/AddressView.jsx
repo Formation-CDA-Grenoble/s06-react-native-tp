@@ -1,11 +1,16 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const AddressView = () =>
-  <View style={{ alignItems: 'center' }}>
-    <Text style={{ fontSize: 20 }}>256, rue Bicube</Text>
-    <Text style={{ fontSize: 20 }}>12345 Ajoua</Text>
-  </View>
-;
+const AddressView = ({ location }) => {
+  const {street, city, postcode, country } = location;
+
+  return (
+    <View style={{ alignItems: 'center' }}>
+      <Text style={{ fontSize: 20 }}>{street.number}, {street.name}</Text>
+      <Text style={{ fontSize: 20 }}>{postcode} {city}</Text>
+      <Text style={{ fontSize: 20, textTransform: 'uppercase', paddingTop: 10 }}>{country}</Text>
+    </View>
+  );
+}
 
 export default AddressView;
